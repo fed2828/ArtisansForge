@@ -32,13 +32,10 @@
       display: block;
     }
   }
-  title
-  {
-    color:green;
-  }
   h1
   {
     color:green;
+    font-size: 250%;
   }
   p
   {
