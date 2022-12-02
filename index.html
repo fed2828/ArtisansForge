@@ -13,14 +13,42 @@
         <h1>LIME&#127816;</h1>
         <div class="navbar">
             <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-            <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
-            <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
             <a href="write.html"><i class="fa fa-pencil"></i> Write</a>
         </div>
+        <br><br>
+        <br><br>
+        <button onclick="clearkeys()">clear keys</button>
         
-    
+        <h1>Chat</h1>
+        <div id="div1">
+            
+            
+        </div>
+  
+        
 
+        
+        
+        <script>
+        for (let i = 0; i < localStorage.length; i++) 
+        {
+        const key = localStorage.key(i)
+        console.log(`${key}: ${localStorage.getItem(key)}`)
+        const para = document.createElement("p");
+        const node = document.createTextNode(`${key}: ${localStorage.getItem(key)}`);
+        para.appendChild(node);
+        const element = document.getElementById("div1");
+        element.appendChild(para);
+        }   
+        </script>
 
+        <script>
+            function clearkeys()
+            {
+                localStorage.clear();
+                location.reload();
+            }
+        </script>
 
     </body>    
     

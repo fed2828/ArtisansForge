@@ -12,35 +12,45 @@
     <body>
         <h1>Write&#127816;</h1>
         <div class="navbar">
-            <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
-            <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
-            <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>           
             <a class="active" href="write.html"><i class="fa fa-pencil"></i> Login</a>
         </div>
         <br><br>
         <br><br>
-            
-        <textarea id="textarea1" placeholder="Enter your message ..." rows="30" cols="100">
+        <textarea id ="title" rows="2" cols="50">
 
         </textarea>
+        <br><br>
+        <br><br>
+        <textarea id="textarea1" rows="30" cols="100">
 
+        </textarea>
         <br><br>
-        <br><br>
-        <button onclick="show();WriteToFile(input1)">Show textarea value</button>
+      
+        <button onclick="show();">post</button>
         <br><br>
         <br><br>
         <p id="result"></p>
+
+
+        
 
         <script>
 
             let show = () => 
             {
-            let element = document.getElementById("textarea1");   
-            document.getElementById("result").innerHTML = element.value;
-            var input1 = element.value;
+            let element = document.getElementById("textarea1");
+            let elementtitle = document.getElementById("title");   
+            document.getElementById("result").innerHTML = (elementtitle.value + element.value);
+            var input = element.value;
+            var input_title = elementtitle.value;
+            localStorage.setItem(input_title, input);
+            //console.log(localStorage.getItem(input_title));
+            location.reload();
             }
 
         </script>
+
    
 
     </body>    
