@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LIME&#127816;</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="images/faviconcpu.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    
+    
+    <body>
+        <h1>Write&#127816;</h1>
+        <div class="navbar">
+            <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>           
+            <a class="active" href="write.html"><i class="fa fa-pencil"></i>Write</a>
+        </div>
+        <br><br>
+        <br><br>
+        <textarea id ="title" rows="2" cols="50">
+
+        </textarea>
+        <br><br>
+        <br><br>
+        <textarea id="textarea1" rows="30" cols="100">
+
+        </textarea>
+        <br><br>
+      
+        <button onclick="show();">post</button>
+        <br><br>
+        <br><br>
+        <p id="result"></p>
+
+
+        
+
+        <script>
+
+            let show = () => 
+            {
+            let element = document.getElementById("textarea1");
+            let elementtitle = document.getElementById("title");   
+            document.getElementById("result").innerHTML = (elementtitle.value + element.value);
+            var input = element.value;
+            var input_title = elementtitle.value;
+            localStorage.setItem(input_title, input);
+            //console.log(localStorage.getItem(input_title));
+            location.reload();
+            }
+
+        </script>
+
+   
+
+    </body>    
+
+
+
+
+
+
+
+</html>
