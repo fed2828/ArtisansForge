@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LIME&#127816;</title>
+        <title>Spaccio riassunti&#127816;</title>
         <link rel="icon" type="image/png" sizes="32x32" href="images/faviconcpu.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css">
@@ -10,46 +10,16 @@
     
     
     <body>
-        <h1>LIME&#127816;</h1>
+        <h1>Spaccio riassunti&#127816;</h1>
         <div class="navbar">
             <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-            <a href="write.html"><i class="fa fa-pencil"></i> Write</a>
+            <a href="caricariassunti.html"><i class="fa fa-pencil"></i> Carica Riassunti</a>
         </div>
         <br><br>
-        
-        
-        
-        <h1>Chat</h1>
-        <div id="div1">
-            
-            
-        </div>
-  
 
-
+      
         
         
-        <script>
-        for (let i = 0; i < localStorage.length; i++) 
-        {
-        const key = localStorage.key(i)
-        console.log(`${key}: ${localStorage.getItem(key)}`)
-        const para = document.createElement("p");
-        const node = document.createTextNode(`${key}: ${localStorage.getItem(key)}`);
-        para.appendChild(node);
-        const element = document.getElementById("div1");
-        element.appendChild(para);
-        }   
-        </script>
-
-        <script>
-            function clearkeys()
-            {
-                localStorage.clear();
-                location.reload();
-            }
-        </script>
-
     </body>    
     
 

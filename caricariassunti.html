@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LIME&#127816;</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="images/faviconcpu.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    
+    
+    <body>
+        <h1>Write&#127816;</h1>
+        <div class="navbar">
+            <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>           
+            <a class="active" href="caricariassunti.html"><i class="fa fa-pencil"></i>Write</a>
+        </div>
+        <div id="drop-area">
+            <p>Trascina e rilascia un file Word qui</p>
+        </div>
+    
+
+
+        <script>
+            // Funzione per impedire il comportamento predefinito del browser durante il trascinamento e il rilascio
+            function preventDefault(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+    
+            // Aggiungi la classe "highlight" al drop area quando un file viene trascinato sopra
+            function highlight(e) {
+                var dropArea = document.getElementById('drop-area');
+                dropArea.classList.add('highlight');
+            }
+    
+            // Rimuovi la classe "highlight" dal drop area quando il file viene lasciato
+            function unhighlight(e) {
+                var dropArea = document.getElementById('drop-area');
+                dropArea.classList.remove('highlight');
+            }
+    
+            // Gestisci il rilascio del file
+            function handleDrop(e) {
+                var file = e.dataTransfer.files[0];
+                var formData = new FormData();
+                formData.append('file', file);
+    
+                // Invia il file al server tramite una richiesta AJAX o una chiamata API
+                // Sostituisci "<URL_DEL_SERVER>" con l'URL del tuo server che gestisce il salvataggio del file
+    
+                fetch('<file:///C:/Users/federico/Documents/HTML%20code/github_site/index.html>', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('File salvato con successo!');
+                    } else {
+                        alert('Errore nel salvataggio del file.');
+                    }
+                })
+                .catch(error => {
+                    alert('Si è verificato un errore durante la richiesta.');
+                });
+            }
+    
+            // Aggiungi eventi di trascinamento e rilascio al drop area
+            var dropArea = document.getElementById('drop-area');
+            dropArea.addEventListener('dragenter', preventDefault, false);
+            dropArea.addEventListener('dragover', preventDefault, false);
+            dropArea.addEventListener('dragleave', unhighlight, false);
+            dropArea.addEventListener('drop', handleDrop, false);
+        </script>    
+        
+    </body>    
+
+
+
+
+
+
+
+</html>

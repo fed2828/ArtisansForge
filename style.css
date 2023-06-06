@@ -56,3 +56,22 @@
     display: inline-block;
     font-size: 16px;
   }
+  #drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    width: 300px;
+    height: 200px;
+    padding: 25px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#drop-area.highlight {
+    border-color: purple;
+}
+
+p {
+    margin-top: 0;
+}
