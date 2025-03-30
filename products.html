@@ -1,3 +1,4 @@
+<!-- products.html -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -7,7 +8,6 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header / Navigazione -->
   <header>
     <div class="logo">
       <a href="index.html">3D Print Service</a>
@@ -23,30 +23,17 @@
   </header>
 
   <main>
-    <section class="products-intro">
-      <h1>I nostri servizi e prodotti</h1>
-      <p>Offriamo diversi tipi di stampa 3D, tra cui FDM e Resina, per soddisfare ogni esigenza: 
-        prototipi, modelli di design, oggetti funzionali e molto altro.</p>
-    </section>
-
-    <section class="product-list">
-      <div class="product-item">
-        <img src="images/resina.jpg" alt="Stampa in Resina" />
-        <h2>Stampa in Resina</h2>
-        <p>Ideale per oggetti ad alta definizione e dettagli fini.</p>
-      </div>
-
-      <div class="product-item">
-        <img src="images/fdm.jpg" alt="Stampa FDM" />
-        <h2>Stampa FDM</h2>
-        <p>Perfetto per prototipi resistenti e produzioni più voluminose.</p>
-      </div>
-
-      <div class="product-item">
-        <img src="images/materiali.jpg" alt="Materiali" />
-        <h2>Materiali Disponibili</h2>
-        <p>PLA, ABS, PETG, Resina standard, Resina trasparente e molto altro.</p>
-      </div>
+    <section class="product-grid">
+      <a href="product-detail.html?id=1" class="product-tile">
+        <img src="images/resina.jpg" alt="Miniatura Resina">
+        <h3>Miniatura Resina</h3>
+        <p class="price">€10,00</p>
+      </a>
+      <a href="product-detail.html?id=2" class="product-tile">
+        <img src="images/fdm.jpg" alt="Supporto FDM">
+        <h3>Supporto FDM</h3>
+        <p class="price">€12,50</p>
+      </a>
     </section>
   </main>
 

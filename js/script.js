@@ -3,7 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const calculatePriceBtn = document.getElementById("calculatePriceBtn");
     const calculatedVolumeDiv = document.getElementById("calculatedVolume");
     const calculatedPriceDiv = document.getElementById("calculatedPrice");
+
+    if (calculatePriceBtn) {
+      calculatePriceBtn.addEventListener("click", async () => {
+        const file = fileUpload.files[0];
+        if (!file) {
+          alert("Seleziona prima un file STL!");
+          return;
+        }
   
+        // ... tutto il codice del calcolo volume ...
+      });
+    }
     // Esempio: costi materiali (€/cm³)
     const materialCosts = {
       "FDM_PLA": 0.10,        // 0.10 €/cm³
@@ -172,4 +183,3 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-  
