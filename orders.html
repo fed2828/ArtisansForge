@@ -9,12 +9,22 @@
 <body>
   <!-- Header / Navigazione (esempio semplificato) -->
   <header>
-    <h1>3D Print Service - Ordini</h1>
+    <div class="logo">
+      <a href="index.html">3D Print Service</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Prodotti</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="active" href="orders.html">Ordini</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
     <section>
-      <p>Carica il tuo file STL (ASCII o Binario) per calcolare il volume e ottenere un preventivo:</p>
+      <p>Carica il tuo file STL per calcolare il volume e ottenere un preventivo:</p>
       <form id="printOrderForm" enctype="multipart/form-data">
         <div class="form-group">
           <label for="materialSelect">Materiale / Tecnologia</label>
