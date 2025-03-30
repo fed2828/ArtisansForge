@@ -21,6 +21,8 @@ header {
   justify-content: space-between;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo a {
@@ -224,17 +226,7 @@ footer {
   margin-top: auto;
   border-top: 1px solid #ccc;
 }
-  body {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
-  header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
+
   .form-group {
     margin-bottom: 1rem;
   }

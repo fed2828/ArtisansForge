@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const costPerCM3 = materialCosts[material] / (density[material]*1000);
         let totalCost = volumeCM3 * costPerCM3 * quantity;
 
-        const setupFee = 2.00;
+        const setupFee = 10.00;
         totalCost += setupFee;
 
         calculatedPriceDiv.textContent = `Prezzo stimato: €${totalCost.toFixed(2)}`;
