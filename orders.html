@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Print Service - Ordini</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <!-- Header / Navigazione (esempio semplificato) -->
+  <header>
+    <h1>3D Print Service - Ordini</h1>
+  </header>
+
+  <main>
+    <section>
+      <p>Carica il tuo file STL (ASCII o Binario) per calcolare il volume e ottenere un preventivo:</p>
+      <form id="printOrderForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="materialSelect">Materiale / Tecnologia</label>
+          <select id="materialSelect" name="materialSelect">
+            <option value="FDM_PLA">FDM - PLA</option>
+            <option value="FDM_ABS">FDM - ABS</option>
+            <option value="RESINA_STD">Resina Standard</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="quantity">Quantità</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1"/>
+        </div>
+
+        <div class="form-group">
+          <label for="fileUpload">Carica file STL (ASCII o Binario)</label>
+          <input type="file" id="fileUpload" name="fileUpload" accept=".stl" required/>
+        </div>
+
+        <div class="cost-calculator">
+          <button type="button" id="calculatePriceBtn">Calcola Volume &amp; Prezzo</button>
+          <div id="calculatedVolume">Volume: --</div>
+          <div id="calculatedPrice">Prezzo stimato: --</div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
