@@ -125,6 +125,7 @@ nav ul li a.active {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 
 label {
