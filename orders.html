@@ -81,32 +81,6 @@
       </form>
     </section>
   </main>
-
-  <script>
-    const calculateBtn = document.getElementById("calculatePriceBtn");
-    const volumeOutput = document.getElementById("calculatedVolume");
-    const priceOutput = document.getElementById("calculatedPrice");
-    const submitBtn = document.getElementById("submitOrderBtn");
-
-    calculateBtn.addEventListener("click", () => {
-      const fileInput = document.getElementById("fileUpload");
-      const quantity = parseInt(document.getElementById("quantity").value) || 1;
-
-      if (!fileInput.files.length) {
-        alert("Carica prima un file STL.");
-        return;
-      }
-
-      // ⚠️ Simulazione calcolo volume (da sostituire con logica reale lato client/server)
-      const fakeVolume = Math.floor(Math.random() * 100 + 10); // cm³
-      const prezzoUnitario = 0.25; // € per cm³ (esempio)
-      const prezzoTotale = (fakeVolume * prezzoUnitario * quantity).toFixed(2);
-
-      volumeOutput.textContent = `Volume: ${fakeVolume} cm³`;
-      priceOutput.textContent = `Prezzo stimato: €${prezzoTotale}`;
-
-      submitBtn.style.display = "inline-block";
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
