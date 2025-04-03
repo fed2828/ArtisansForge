@@ -60,6 +60,7 @@
           <label for="email">La tua Email</label>
           <input type="email" id="email" name="email" required>
         </div>
+        
 
         <!-- Risultati calcolo -->
         <div class="cost-calculator">
@@ -68,13 +69,15 @@
           <div id="calculatedPrice">Prezzo stimato: --</div>
         </div>
 
+        <!-- Pulsante di invio, inizialmente nascosto -->
+        <button type="submit" id="submitOrderBtn">Invia Ordine</button>
+
         <!-- Campi nascosti per FormSubmit -->
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="box">
         <input type="hidden" name="_next" value="https://tuo-sito.github.io/grazie.html">
 
-        <!-- Pulsante di invio, inizialmente nascosto -->
-        <button type="submit" id="submitOrderBtn">Invia Ordine</button>
+
       </form>
     </section>
   </main>
