@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>3D Print Service - Ordini</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    #submitOrderBtn {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header / Navigazione (esempio semplificato) -->
+  <!-- Header semplificato -->
   <header>
     <div class="logo">
       <a href="index.html">
@@ -24,43 +30,80 @@
       </ul>
     </nav>
   </header>
-  <!-- Fine Header / Navigazione --> 
 
-  main>
-  <section>
-    <p>Carica il tuo file STL per calcolare il volume e ottenere un preventivo:</p>
-    <form id="printOrderForm" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="materialSelect">Materiale / Tecnologia</label>
-        <select id="materialSelect" name="materialSelect">
-          <option value="PLA_BASIC">PLA-BASIC</option>
-          <option value="PLA_METAL">PLA_METAL</option>
-          <option value="RESINA_STD">Resina Standard</option>
-        </select>
-      </div>
+  <main>
+    <section>
+      <h1>Ordine Personalizzato</h1>
+      <p>Carica il tuo file STL per calcolare il volume e ottenere un preventivo:</p>
 
-      <div class="form-group">
-        <label for="quantity">Quantità</label>
-        <input type="number" id="quantity" name="quantity" value="1" min="1"/>
-      </div>
+      <form id="printOrderForm" action="https://formsubmit.co/tu@email.com" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="materialSelect">Materiale / Tecnologia</label>
+          <select id="materialSelect" name="materiale" required>
+            <option value="PLA_BASIC">PLA-BASIC</option>
+            <option value="PLA_METAL">PLA_METAL</option>
+            <option value="RESINA_STD">Resina Standard</option>
+          </select>
+        </div>
 
-      <div class="form-group">
-        <label for="fileUpload">Carica file STL</label>
-        <input type="file" id="fileUpload" name="fileUpload" accept=".stl" required/>
-      </div>
+        <div class="form-group">
+          <label for="quantity">Quantità</label>
+          <input type="number" id="quantity" name="quantita" value="1" min="1" required>
+        </div>
 
-      <div class="cost-calculator">
-        <button type="button" id="calculatePriceBtn">Calcola Volume &amp; Prezzo</button>
-        <div id="calculatedVolume">Volume: --</div>
-        <div id="calculatedPrice">Prezzo stimato: --</div>
-      </div>
-    </form>
-  </section>
+        <div class="form-group">
+          <label for="fileUpload">Carica file STL</label>
+          <input type="file" id="fileUpload" name="allegato" accept=".stl" required>
+        </div>
 
-  <section style="margin-top: 40px; text-align: center;">
-    <p style="margin-bottom: 1rem;">PREZZO INDICATIVO, PREZZO EFFETTIVO CALCOLATO UNA VOLTA INVIATO IL FILE</p>
-    <a href="mailto:federico@virtualisoftware.com" style="text-decoration:none; padding:10px 20px; background:#007BFF; color:white; border-radius:5px; font-family:sans-serif;">
-      federico@virtualisoftware.com
-    </a>
-  </section>
-</main>
+        <div class="form-group">
+          <label for="email">La tua Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Risultati calcolo -->
+        <div class="cost-calculator">
+          <button type="button" id="calculatePriceBtn">Calcola Volume & Prezzo</button>
+          <div id="calculatedVolume">Volume: --</div>
+          <div id="calculatedPrice">Prezzo stimato: --</div>
+        </div>
+
+        <!-- Campi nascosti per FormSubmit -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_next" value="https://tuo-sito.github.io/grazie.html">
+
+        <!-- Pulsante di invio, inizialmente nascosto -->
+        <button type="submit" id="submitOrderBtn">Invia Ordine</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const calculateBtn = document.getElementById("calculatePriceBtn");
+    const volumeOutput = document.getElementById("calculatedVolume");
+    const priceOutput = document.getElementById("calculatedPrice");
+    const submitBtn = document.getElementById("submitOrderBtn");
+
+    calculateBtn.addEventListener("click", () => {
+      const fileInput = document.getElementById("fileUpload");
+      const quantity = parseInt(document.getElementById("quantity").value) || 1;
+
+      if (!fileInput.files.length) {
+        alert("Carica prima un file STL.");
+        return;
+      }
+
+      // ⚠️ Simulazione calcolo volume (da sostituire con logica reale lato client/server)
+      const fakeVolume = Math.floor(Math.random() * 100 + 10); // cm³
+      const prezzoUnitario = 0.25; // € per cm³ (esempio)
+      const prezzoTotale = (fakeVolume * prezzoUnitario * quantity).toFixed(2);
+
+      volumeOutput.textContent = `Volume: ${fakeVolume} cm³`;
+      priceOutput.textContent = `Prezzo stimato: €${prezzoTotale}`;
+
+      submitBtn.style.display = "inline-block";
+    });
+  </script>
+</body>
+</html>

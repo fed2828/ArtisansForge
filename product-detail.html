@@ -23,6 +23,28 @@
     </div>
   </main>
 
+  <section>
+    <h1>Ordina Prodotto</h1>
+    <form action="https://formsubmit.co/tu@email.com" method="POST">
+      <label for="email">La tua Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+  
+      <label for="quantita">Quantità:</label><br>
+      <input type="number" id="quantita" name="quantita" min="1" required><br><br>
+  
+      <!-- Impostazioni opzionali -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_next" value="https://tuo-sito.github.io/grazie.html">
+  
+      <button type="submit">Ordina</button>
+    </form>
+  </section>
+
+
+
+
+
   <footer>
     <p>&copy; 2025 3D Print Service</p>
   </footer>
