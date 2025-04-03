@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="5;url=index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grazie per l'Ordine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #27ae60;
+    }
+    #countdown {
+      font-size: 1.5em;
+      color: #555;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Grazie per il tuo ordine!</h1>
+  <p>A breve riceverai maggiori informazioni via email.</p>
+  <div id="countdown">Verrai reindirizzato tra 5 secondi...</div>
+
+  <script>
+    let counter = 5;
+    const countdownEl = document.getElementById('countdown');
+    const interval = setInterval(() => {
+      counter--;
+      countdownEl.textContent = `Verrai reindirizzato tra ${counter} secondi...`;
+      if (counter === 0) clearInterval(interval);
+    }, 1000);
+  </script>
+</body>
+</html>
