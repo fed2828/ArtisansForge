@@ -1,16 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ======== Sezione ORDERS.HTML ========
   const fileUpload = document.getElementById("fileUpload");
   const calculatePriceBtn = document.getElementById("calculatePriceBtn");
   const calculatedVolumeDiv = document.getElementById("calculatedVolume");
   const calculatedPriceDiv = document.getElementById("calculatedPrice");
   const submitOrderBtn = document.getElementById("submitOrderBtn");
+  const materialSelect = document.getElementById("materialSelect");
+  const quantityInput = document.getElementById("quantity");
 
   const materialCosts = {
     "PLA_BASIC": 19.32,
     "PLA_METAL": 23.52,
     "RESINA_STD": 0.25
   };
+
   const density = {
     "PLA_BASIC": 1.24,
     "PLA_METAL": 1.25,
@@ -31,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         calculatedVolumeDiv.textContent = `Volume: ${volumeCM3.toFixed(2)} cm³`;
 
-        const material = document.getElementById("materialSelect").value;
-        const quantity = parseInt(document.getElementById("quantity").value) || 1;
+        const material = materialSelect.value;
+        const quantity = parseInt(quantityInput.value) || 1;
         const costPerCM3 = materialCosts[material] / (density[material] * 1000);
         let totalCost = volumeCM3 * costPerCM3 * quantity;
 
@@ -41,11 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         calculatedPriceDiv.textContent = `Prezzo stimato: €${totalCost.toFixed(2)}`;
 
-        // 🔥 Mostra il bottone di invio solo dopo il calcolo
         if (submitOrderBtn) {
           submitOrderBtn.style.display = "inline-block";
         }
 
+        removeRecalculationWarning();
       } catch (err) {
         console.error(err);
         alert("Errore durante l'analisi del file STL: " + err.message);
@@ -53,6 +55,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // 🔄 Se cambia un campo, nascondi bottone e avvisa
+  function hideSubmitBtnAndWarn() {
+    if (submitOrderBtn) submitOrderBtn.style.display = "none";
+    showRecalculationWarning();
+  }
+
+  function showRecalculationWarning() {
+    if (!document.getElementById("recalcMsg")) {
+      const msg = document.createElement("div");
+      msg.id = "recalcMsg";
+      msg.style.color = "orange";
+      msg.style.marginTop = "10px";
+      msg.textContent = "Hai modificato i dati. Calcola di nuovo il prezzo.";
+      calculatedPriceDiv.parentElement.appendChild(msg);
+    }
+  }
+
+  function removeRecalculationWarning() {
+    const msg = document.getElementById("recalcMsg");
+    if (msg) msg.remove();
+  }
+
+  fileUpload?.addEventListener("change", hideSubmitBtnAndWarn);
+  materialSelect?.addEventListener("change", hideSubmitBtnAndWarn);
+  quantityInput?.addEventListener("input", hideSubmitBtnAndWarn);
+
+  // === Parser STL ===
   async function parseSTLVolume(file) {
     const arrayBuffer = await file.arrayBuffer();
     return isBinarySTL(arrayBuffer)
@@ -110,57 +139,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const cy = az * bx - ax * bz;
     const cz = ax * by - ay * bx;
     return (v1[0] * cx + v1[1] * cy + v1[2] * cz) / 6.0;
-  }
-
-  // ======== Sezione PRODUCT-DETAIL.HTML ========
-  const detailContainer = document.getElementById("productDetail");
-  if (detailContainer) {
-    const params = new URLSearchParams(window.location.search);
-    const productId = params.get("id");
-
-    const products = {
-      "1": {
-        name: "Miniatura Resina",
-        price: "€10,00",
-        image: "images/resina.jpg",
-        description: "Miniatura dettagliata stampata in resina ad alta definizione.",
-        printerIcon: "images/resina-icon.png",
-        printerType: "Resina",
-        material: "Resina standard - 20g"
-      },
-      "2": {
-        name: "Supporto FDM",
-        price: "€12,50",
-        image: "images/fdm.jpg",
-        description: "Supporto resistente stampato in FDM con PLA.",
-        printerIcon: "images/fdm-icon.png",
-        printerType: "FDM",
-        material: "PLA - 80g"
-      }
-    };
-
-    const product = products[productId];
-    if (!product) {
-      detailContainer.innerHTML = "<p>Prodotto non trovato.</p>";
-      return;
-    }
-
-    detailContainer.innerHTML = `
-      <div class="product-detail-container">
-        <img src="${product.image}" alt="${product.name}">
-        <div class="detail-text">
-          <h1>${product.name}</h1>
-          <p class="price">${product.price}</p>
-          <div class="printer-info">
-            <img src="${product.printerIcon}" alt="${product.printerType}" title="${product.printerType}">
-            <span>${product.printerType}</span>
-          </div>
-          <p class="material">${product.material}</p>
-        </div>
-      </div>
-      <div class="description">
-        <p>${product.description}</p>
-      </div>
-    `;
   }
 });
