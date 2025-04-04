@@ -42,11 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
         calculatedPriceDiv.textContent = `Prezzo stimato: €${totalCost.toFixed(2)}`;
 
         // 🔥 Mostra il bottone di invio solo dopo il calcolo
-        /*
         if (submitOrderBtn) {
           submitOrderBtn.style.display = "inline-block";
         }
-        */
+        
       } catch (err) {
         console.error(err);
         alert("Errore durante l'analisi del file STL: " + err.message);
