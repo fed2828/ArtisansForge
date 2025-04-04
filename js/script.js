@@ -8,13 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const materialCosts = {
     "PLA_BASIC": 19.32,
-    "PLA_METAL": 23.52,
-    "RESINA_STD": 40.50
+    "PLA_METAL": 23.52, 
+    "PLA_MATTE": 22.90,
+    "PETG_HF": 22.99,
+    "PET_CF": 76.46,
+    "TPU": 43.99,
+    "ABS_GF": 31.99,
+    "PLA_CF": 35.99,
+    "RESINA": 40.50
   };
   const density = {
     "PLA_BASIC": 1.24,
     "PLA_METAL": 1.25,
-    "RESINA_STD": 1.18
+    "PLA_MATTE": 1.31,
+    "PETG_HF": 1.28,
+    "PET_CF": 1.29,
+    "TPU": 1.22, 
+    "ABS_GF": 1.08, 
+    "PLA_CF": 1.22, 
+    "RESINA": 1.18
   };
 
   if (calculatePriceBtn) {
@@ -34,10 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const material = document.getElementById("materialSelect").value;
         const quantity = parseInt(document.getElementById("quantity").value) || 1;
         const costPerCM3 = materialCosts[material] / (density[material] * 1000);
-        const sizeCost = (volumeCM3 / 15.550) * 0.7;
-        let totalCost = (volumeCM3 * costPerCM3 + sizeCost)* quantity;
+        const sizeCost = (volumeCM3 / 15.550) * 0.45;
+        let totalCost = (volumeCM3 * costPerCM3 + sizeCost*(materialCosts[material]/20))* quantity;
 
-        const setupFee = 10.00;
+        const setupFee = 2;
         totalCost += setupFee;
 
         calculatedPriceDiv.textContent = `Prezzo stimato: ${totalCost.toFixed(2)} chf`;
