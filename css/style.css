@@ -413,7 +413,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translateX(210px); /* sposta tutto di 40px verso destra */
+  margin-left: 130px;
 }
 
 .submit-note {
