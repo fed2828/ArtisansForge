@@ -174,16 +174,23 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
   }
+  
   fileInput.addEventListener("change", function () {
     const file = fileInput.files[0];
-
+  
     if (file && file.size > 5 * 1024 * 1024) {
       // File troppo grande
       alert("Il file è troppo grande (oltre 5 MB). Caricalo su un servizio cloud e incolla il link qui sotto.");
-      submitButton.disabled = true;
-      linkGroup.style.display = "flex"; // forza visibilità nel layout
+  
+      // Cancella il file per non farlo inviare a formsubmit
+      fileInput.value = ""; // questo rimuove il file selezionato
+  
+      // Mostra il campo per il link
+      linkGroup.style.display = "flex";
       linkInput.required = true;
-
+      submitButton.disabled = true;
+  
+      // Abilita il submit solo se il link è presente
       linkInput.addEventListener("input", function () {
         if (linkInput.value.trim().length > 0) {
           submitButton.disabled = false;
@@ -198,4 +205,5 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.disabled = false;
     }
   });
+  
 });
