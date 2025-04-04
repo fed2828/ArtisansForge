@@ -66,6 +66,11 @@
             <input type="email" id="email" name="email" required>
           </div>
 
+          <div class="form-group" id="externalLinkGroup" style="display: none;">
+            <label for="externalLink">Link al file STL (Dropbox, Google Drive...)</label>
+            <input type="url" id="externalLink" name="link_esterno" placeholder="https://...">
+          </div>
+          
           <div class="cost-calculator">
             <button type="button" id="calculatePriceBtn">Calcola Volume & Prezzo</button>
             <div id="calculatedVolume">Volume: --</div>
@@ -86,10 +91,11 @@
         <p>L'ultima scelta nella lista, la resina,</p> 
         <p>è per quasi soltanto miniauture e modelli dettagliati</p>
         <br>
-        <button type="submit" form="printOrderForm" id="submitOrderBtn">Invia Ordine</button>
+        <button type="submit" form="printOrderForm" id="submitButton">Invia Ordine</button>
         <div class="submit-note">
           Ritiro al Liceo di Mendrisio, pagamento in contanti/Twint, tempo di stampa minimo 3 giorni lavorativi ed aumenta più grande è la stampa, possibilità di consegna se nel Mendrisiotto
         </div>
+
       </div>
     </section>
   </main>

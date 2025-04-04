@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const calculatePriceBtn = document.getElementById("calculatePriceBtn");
   const calculatedVolumeDiv = document.getElementById("calculatedVolume");
   const calculatedPriceDiv = document.getElementById("calculatedPrice");
-  const submitOrderBtn = document.getElementById("submitOrderBtn");
+  const fileInput = document.getElementById("fileUpload");
+  const submitButton = document.getElementById("submitButton");
+  const linkGroup = document.getElementById("externalLinkGroup");
+  const linkInput = document.getElementById("externalLink");
 
   const materialCosts = {
     "PLA_BASIC": 19.32,
@@ -171,4 +174,28 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
   }
+  fileInput.addEventListener("change", function () {
+    const file = fileInput.files[0];
+
+    if (file && file.size > 5 * 1024 * 1024) {
+      // File troppo grande
+      alert("Il file è troppo grande (oltre 5 MB). Caricalo su un servizio cloud e incolla il link qui sotto.");
+      submitButton.disabled = true;
+      linkGroup.style.display = "flex"; // forza visibilità nel layout
+      linkInput.required = true;
+
+      linkInput.addEventListener("input", function () {
+        if (linkInput.value.trim().length > 0) {
+          submitButton.disabled = false;
+        } else {
+          submitButton.disabled = true;
+        }
+      });
+    } else {
+      // File accettabile
+      linkGroup.style.display = "none";
+      linkInput.required = false;
+      submitButton.disabled = false;
+    }
+  });
 });
