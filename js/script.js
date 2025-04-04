@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const materialCosts = {
     "PLA_BASIC": 19.32,
     "PLA_METAL": 23.52,
-    "RESINA_STD": 0.25
+    "RESINA_STD": 40.50
   };
   const density = {
     "PLA_BASIC": 1.24,
     "PLA_METAL": 1.25,
-    "RESINA_STD": 1.20
+    "RESINA_STD": 1.18
   };
 
   if (calculatePriceBtn) {
@@ -34,12 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const material = document.getElementById("materialSelect").value;
         const quantity = parseInt(document.getElementById("quantity").value) || 1;
         const costPerCM3 = materialCosts[material] / (density[material] * 1000);
-        let totalCost = volumeCM3 * costPerCM3 * quantity;
+        const sizeCost = (volumeCM3 / 15.550) * 0.7;
+        let totalCost = (volumeCM3 * costPerCM3 + sizeCost)* quantity;
 
         const setupFee = 10.00;
         totalCost += setupFee;
 
-        calculatedPriceDiv.textContent = `Prezzo stimato: €${totalCost.toFixed(2)}`;
+        calculatedPriceDiv.textContent = `Prezzo stimato: ${totalCost.toFixed(2)} chf`;
         
       } catch (err) {
         console.error(err);
