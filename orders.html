@@ -5,14 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>3D Print Service - Ordini</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <style>
-    #submitOrderBtn {
-      margin-top: 20px;
-    }
-  </style>
 </head>
 <body>
-  <!-- Header semplificato -->
+
   <header>
     <div class="logo">
       <a href="index.html">
@@ -31,58 +26,62 @@
   </header>
 
   <main>
-    <section>
+    <section class="order-intro">
       <h1>Ordine Personalizzato</h1>
       <p>Carica il tuo file STL per calcolare il volume e ottenere un preventivo:</p>
+    </section>
 
-      <form id="printOrderForm" action="https://formsubmit.co/ad9fd42985995d0849e57f07c9a7e0d3" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="materialSelect">Materiale / Tecnologia</label>
-          <select id="materialSelect" name="materiale" required>
-            <option value="PLA_BASIC">PLA-BASIC</option>
-            <option value="PLA_METAL">PLA_METAL</option>
-            <option value="RESINA_STD">Resina Standard</option>
-          </select>
+    <section class="order-layout">
+      <!-- Colonna Sinistra -->
+      <div class="order-left">
+        <form id="printOrderForm" action="https://formsubmit.co/ad9fd42985995d0849e57f07c9a7e0d3" method="POST" enctype="multipart/form-data">
+
+          <div class="form-group">
+            <label for="materialSelect">Materiale / Tecnologia</label>
+            <select id="materialSelect" name="materiale" required>
+              <option value="PLA_BASIC">PLA-BASIC</option>
+              <option value="PLA_METAL">PLA_METAL</option>
+              <option value="RESINA_STD">Resina Standard</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">Quantità</label>
+            <input type="number" id="quantity" name="quantita" value="1" min="1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fileUpload">Carica file STL</label>
+            <input type="file" id="fileUpload" name="allegato" accept=".stl" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">La tua Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="cost-calculator">
+            <button type="button" id="calculatePriceBtn">Calcola Volume & Prezzo</button>
+            <div id="calculatedVolume">Volume: --</div>
+            <div id="calculatedPrice">Prezzo stimato: --</div>
+          </div>
+
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_next" value="https://fed2828.github.io/grazie.html">
+          <input type="hidden" name="_autoresponse" value="Grazie mille per l'ordine, abbiamo ricevuto il file STL ed inizieremo la stampa il prima possibile. Ti contatteremo via email per confermare i dettagli(ritiro/cosegna) e il prezzo finale.">
+        </form>
+      </div>
+
+      <!-- Colonna Destra -->
+      <div class="submit-column">
+        <button type="submit" form="printOrderForm" id="submitOrderBtn">Invia Ordine</button>
+        <div class="submit-note">
+          Ritiro al Liceo di Mendrisio, pagamento in contanti/Twint, tempo di stampa minimo 3 giorni lavorativi ed aumenta più grande è la stampa, possibilità di consegna se nel Mendrisiotto
         </div>
-
-        <div class="form-group">
-          <label for="quantity">Quantità</label>
-          <input type="number" id="quantity" name="quantita" value="1" min="1" required>
-        </div>
-
-        <div class="form-group">
-          <label for="fileUpload">Carica file STL</label>
-          <input type="file" id="fileUpload" name="allegato" accept=".stl" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">La tua Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        
-
-        <!-- Risultati calcolo -->
-        <div class="cost-calculator">
-          <button type="button" id="calculatePriceBtn">Calcola Volume & Prezzo</button>
-          <div id="calculatedVolume">Volume: --</div>
-          <div id="calculatedPrice">Prezzo stimato: --</div>
-        </div>
-
-        <!-- Pulsante di invio, inizialmente nascosto -->
-         <div class="form-group">
-          <button type="submit" id="submitOrderBtn">Invia Ordine</button>
-         </div>
-        
-
-        <!-- Campi nascosti per FormSubmit -->
-        <input type="hidden" name="_template" value="box">
-        <input type="hidden" name="_next" value="https://fed2828.github.io/grazie.html">
-        <input type="hidden" name="_autoresponse" value="Grazie mille per l'ordine, abbiamo ricevuto il file STL ed inizieremo la stampa il prima possibile. Ti contatteremo via email per confermare i dettagli(ritiro/cosegna) e il prezzo finale.">
-
-
-      </form>
+      </div>
     </section>
   </main>
+
   <script src="js/script.js"></script>
 </body>
 </html>

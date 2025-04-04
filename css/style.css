@@ -395,3 +395,30 @@ footer {
 .icon {
   font-size: 1.2em;
 }
+.order-layout {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 130px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.order-left {
+  max-width: 400px;
+}
+
+.submit-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(210px); /* sposta tutto di 40px verso destra */
+}
+
+.submit-note {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 300px;
+}
