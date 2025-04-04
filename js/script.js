@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
   }
-  
+
   fileInput.addEventListener("change", function () {
     const file = fileInput.files[0];
   
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Il file è troppo grande (oltre 5 MB). Caricalo su un servizio cloud e incolla il link qui sotto.");
   
       // Cancella il file per non farlo inviare a formsubmit
-      fileInput.value = ""; // questo rimuove il file selezionato
+      fileInput.parentElement.removeChild(fileInput);
   
       // Mostra il campo per il link
       linkGroup.style.display = "flex";
