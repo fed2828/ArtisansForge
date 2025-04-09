@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const quantity = parseInt(document.getElementById("quantity").value) || 1;
         const costPerCM3 = materialCosts[material] / (density[material] * 1000);
         const sizeCost = (volumeCM3 / 15.550) * 0.45;
-        let totalCost = (volumeCM3 * costPerCM3 + sizeCost*(materialCosts[material]/20))* quantity;
+        let totalCost = ((volumeCM3 * costPerCM3 + sizeCost*(materialCosts[material]/20))*0.55)* quantity;
 
         const setupFee = 2;
         totalCost += setupFee;
