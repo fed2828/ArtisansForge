@@ -207,13 +207,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.getElementById("menuToggle");
-    const menu = document.getElementById("mobileMenu");
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
   
-    if (toggleBtn && menu) {
-      toggleBtn.addEventListener("click", function () {
-        menu.classList.toggle("active");
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
       });
     }
   });

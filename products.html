@@ -48,6 +48,20 @@
 <main style="text-align: center; margin-top: 50px; font-size: 2em;">
   Prodotti già stampati e pronti all'acquisto sono in arrivo!
 </main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+    }
+  });
+</script>
+
   <footer>
     <p>&copy; 2025 Artisans' Forge - Tutti i diritti riservati</p>
   </footer>
