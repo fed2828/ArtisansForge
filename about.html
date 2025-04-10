@@ -14,14 +14,26 @@
         Artisans' Forge
       </a>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Prodotti</a></li>
-        <li><a href="orders.html">Ordini</a></li>
-        <li><a class="active" href="about.html">About</a></li>
-      </ul>
-    </nav>
+      <!-- Menu per desktop -->
+      <nav class="desktop-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Prodotti</a></li>
+          <li><a href="orders.html">Ordini</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    
+        <button class="hamburger" id="menuToggle">☰</button>
+    
+        <nav id="mobileMenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Prodotti</a></li>
+            <li><a href="orders.html">Ordini</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
   </header>
 
   <main>
@@ -47,6 +59,17 @@
       </div>
     </section>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+  
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+    });
+  </script>
 
   <footer>
     <p>&copy; 2025 Artisans' Forge - Tutti i diritti riservati</p>
