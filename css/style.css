@@ -397,11 +397,11 @@ footer {
 }
 .order-layout {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 130px;
+  justify-content: center;
+  align-items: flex-start;
   gap: 60px;
   flex-wrap: wrap;
+  padding: 2rem;
 }
 
 .order-left {
@@ -435,7 +435,7 @@ footer {
 }
 
 /* Mobile layout */
-@media screen and (max-width: 768) {
+@media screen and (max-width: 1200px) {
   .desktop-menu {
     display: none;
   }
@@ -452,7 +452,7 @@ footer {
   #mobileMenu {
     display: none;
     position: absolute;
-    top: 95px; /* oppure quanto è alto l'header */
+    top: 95px;
     right: 0;
     width: 220px;
     background-color: white;
@@ -468,8 +468,8 @@ footer {
 
   #mobileMenu ul {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
   }
@@ -477,12 +477,23 @@ footer {
   #mobileMenu ul li {
     border-bottom: 1px solid #eee;
   }
-  
+
   #mobileMenu ul li a {
-    display: block;
     padding: 1rem;
-    text-align: right; /* o left se preferisci */
+    display: block;
     text-decoration: none;
     color: #333;
+  }
+
+  .order-layout {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 1rem;
+    align-items: stretch;
+  }
+
+  .submit-column {
+    margin-left: 0;
+    margin-top: 2rem;
   }
 }
