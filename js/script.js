@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     if (toggleBtn && menu) {
       toggleBtn.addEventListener("click", function () {
-        menu.classList.toggle("hidden");
+        menu.classList.toggle("active");
       });
     }
   });

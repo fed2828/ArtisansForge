@@ -498,6 +498,12 @@ footer {
   }
 }
 
+/* Menu mobile nascosto di default */
+#mobileMenu {
+  display: none;
+}
+
+/* Mostra solo il bottone hamburger su mobile */
 .hamburger {
   display: none;
   font-size: 2rem;
@@ -507,37 +513,37 @@ footer {
   margin-left: auto;
 }
 
-.hidden {
-  display: none;
-}
-
 @media screen and (max-width: 768px) {
   .hamburger {
     display: block;
   }
 
-  nav#mobileMenu.hidden {
-    display: none;
+  #mobileMenu.active {
+    display: block;
   }
 
-  nav#mobileMenu ul {
+  #mobileMenu ul {
     flex-direction: column;
-    gap: 0;
+    padding: 0;
+    margin: 0;
   }
 
-  nav#mobileMenu ul li a {
+  #mobileMenu ul li {
+    border-top: 1px solid #ccc;
+  }
+
+  #mobileMenu ul li a {
     display: block;
     padding: 1rem;
-    border-top: 1px solid #ccc;
   }
 }
 
 @media screen and (min-width: 769px) {
-  .hamburger {
-    display: none;
+  #mobileMenu {
+    display: block;
   }
 
-  nav#mobileMenu {
-    display: block !important;
+  .hamburger {
+    display: none;
   }
 }
