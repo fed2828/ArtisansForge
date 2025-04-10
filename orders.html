@@ -106,6 +106,19 @@
 
   <script src="js/script.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+  
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+  
   <footer>
     <p>&copy; 2025 Artisans' Forge - Tutti i diritti riservati</p>
   </footer>
