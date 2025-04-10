@@ -422,3 +422,78 @@ footer {
   margin-top: 1rem;
   max-width: 300px;
 }
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #ccc;
+  }
+
+  .order-layout {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 30px;
+    padding: 0 1rem;
+  }
+
+  .submit-column {
+    margin-left: 0;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .column img {
+    width: 100%;
+  }
+
+  .product-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq,
+  .gallery {
+    padding: 20px 10px;
+  }
+
+  .about-section,
+  .team-section {
+    padding: 1rem;
+  }
+
+  .form-group {
+    max-width: 100%;
+  }
+
+  .product-detail-container img {
+    max-width: 90%;
+  }
+
+  .site-logo {
+    height: 64px;
+  }
+
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
