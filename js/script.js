@@ -204,6 +204,19 @@ document.addEventListener("DOMContentLoaded", () => {
       linkInput.required = false;
       submitButton.disabled = false;
     }
+    
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+  
+    if (toggleBtn && menu) {
+      toggleBtn.addEventListener("click", function () {
+        menu.classList.toggle("hidden");
+      });
+    }
+  });
+  
   
 });

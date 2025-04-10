@@ -497,3 +497,47 @@ footer {
     padding: 0.5rem;
   }
 }
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  nav#mobileMenu.hidden {
+    display: none;
+  }
+
+  nav#mobileMenu ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav#mobileMenu ul li a {
+    display: block;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  nav#mobileMenu {
+    display: block !important;
+  }
+}
