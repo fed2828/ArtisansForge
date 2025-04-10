@@ -435,7 +435,7 @@ footer {
 }
 
 /* Mobile layout */
-@media screen and (max-width: 2000) {
+@media screen and (max-width: 768) {
   .desktop-menu {
     display: none;
   }
