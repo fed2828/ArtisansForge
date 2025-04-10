@@ -423,99 +423,43 @@ footer {
   max-width: 300px;
 }
 
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
 
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  nav ul li a {
-    display: block;
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-top: 1px solid #ccc;
-  }
-
-  .order-layout {
-    flex-direction: column;
-    margin-left: 0;
-    gap: 30px;
-    padding: 0 1rem;
-  }
-
-  .submit-column {
-    margin-left: 0;
-  }
-
-  .container {
-    flex-direction: column;
-  }
-
-  .column img {
-    width: 100%;
-  }
-
-  .product-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .faq,
-  .gallery {
-    padding: 20px 10px;
-  }
-
-  .about-section,
-  .team-section {
-    padding: 1rem;
-  }
-
-  .form-group {
-    max-width: 100%;
-  }
-
-  .product-detail-container img {
-    max-width: 90%;
-  }
-
-  .site-logo {
-    height: 64px;
-  }
-
-  .hero {
-    padding: 1.5rem 1rem;
-  }
-
-  footer {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
+/* Menu desktop visibile solo su desktop */
+.desktop-menu {
+  display: block;
 }
 
-/* Menu mobile nascosto di default */
-#mobileMenu {
-  display: none;
-}
-
-/* Mostra solo il bottone hamburger su mobile */
+#mobileMenu,
 .hamburger {
   display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: auto;
 }
 
+/* Mobile layout */
 @media screen and (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
   .hamburger {
     display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  #mobileMenu {
+    display: none;
+    position: absolute;
+    top: 95px; /* oppure quanto è alto l'header */
+    right: 0;
+    width: 220px;
+    background-color: white;
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 999;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
   }
 
   #mobileMenu.active {
@@ -523,27 +467,22 @@ footer {
   }
 
   #mobileMenu ul {
-    flex-direction: column;
-    padding: 0;
+    list-style: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
   }
 
   #mobileMenu ul li {
-    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
   }
-
+  
   #mobileMenu ul li a {
     display: block;
     padding: 1rem;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  #mobileMenu {
-    display: block;
-  }
-
-  .hamburger {
-    display: none;
+    text-align: right; /* o left se preferisci */
+    text-decoration: none;
+    color: #333;
   }
 }

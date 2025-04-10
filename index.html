@@ -16,6 +16,16 @@
       </a>
     </div>
 
+      <!-- Menu per desktop -->
+  <nav class="desktop-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Prodotti</a></li>
+      <li><a href="orders.html">Ordini</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
     <button class="hamburger" id="menuToggle">☰</button>
 
     <nav id="mobileMenu">
@@ -96,11 +106,9 @@
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
 
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-      });
-    }
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
   });
 </script>
 
