@@ -12,6 +12,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   color: #333;
+  background-color: white;
 }
 
 /* Header e Navigazione */
